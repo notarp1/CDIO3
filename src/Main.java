@@ -42,7 +42,6 @@ public class Main {
 
         while(true){
 
-
             for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
 
                 System.out.println("Tryk 1 for at rulle terningerne " + player[i]);
@@ -65,17 +64,9 @@ public class Main {
                         chancekort(player, chanceDeck, i);
 
                     } else chancekort(player, chanceDeck, i);
-
-
                 }
-
             }
-
-
         }
-
-
-
     }
 
     private static void chancekort(Player[] player, ChanceDeck chanceDeck, int i) {

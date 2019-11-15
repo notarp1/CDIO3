@@ -2,11 +2,8 @@ class Shaker {
 
     public Die die1;
 
-
     Shaker() {
-
         die1 = new Die();
-
     }
 
     int rollDice(){
