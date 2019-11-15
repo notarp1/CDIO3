@@ -5,16 +5,38 @@ public class Main {
 
     public static void main(String[] args) {
 
+        boolean antalSpillereOK = false;
         NumberOfPlayers playerNumber = new NumberOfPlayers();
 
         Player[] player = new Player[playerNumber.numberOfPlayers];
-        for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
-            System.out.println("Spiller indtast dit navn");
-            player[i] = new Player(20);
-            System.out.println("Navn " + player[i].playerName);
 
+
+        while (!antalSpillereOK) {
+
+            for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
+
+                if (playerNumber.numberOfPlayers == 2) {
+
+                    System.out.println("Spiller indtast dit navn");
+                    player[i] = new Player(20);
+                    System.out.println("Navn " + player[i].playerName);
+                    antalSpillereOK = true;
+                } else if (playerNumber.numberOfPlayers == 3) {
+
+                    System.out.println("Spiller indtast dit navn");
+                    player[i] = new Player(18);
+                    System.out.println("Navn " + player[i].playerName);
+                    antalSpillereOK = true;
+                } else if (playerNumber.numberOfPlayers == 4) {
+
+                    System.out.println("Spiller indtast dit navn");
+                    player[i] = new Player(16);
+                    System.out.println("Navn " + player[i].playerName);
+                    antalSpillereOK = true;
+
+                }
+            }
         }
-
         Shaker shaker;
         shaker = new Shaker();
 
