@@ -1,9 +1,9 @@
-public class Kort {
+public class ChanceKort {
 
     private String action;
 
 
-    public Kort(String action){
+    public ChanceKort(String action){
 
         this.action = action;
 

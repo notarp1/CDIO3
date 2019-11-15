@@ -34,8 +34,8 @@ public class Main {
         Shaker shaker;
         shaker = new Shaker();
 
-        Daek daek = new Daek();
-        daek.blandkort();
+        ChanceDeck chanceDeck = new ChanceDeck();
+        chanceDeck.blandkort();
 
 
         Scanner scan = new Scanner(System.in);
@@ -62,9 +62,9 @@ public class Main {
                         player[i].currentFelt = player[i].previousFelt;
                         System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
 
-                        chancekort(player, daek, i);
+                        chancekort(player, chanceDeck, i);
 
-                    } else chancekort(player, daek, i);
+                    } else chancekort(player, chanceDeck, i);
 
 
                 }
@@ -78,10 +78,10 @@ public class Main {
 
     }
 
-    private static void chancekort(Player[] player, Daek daek, int i) {
+    private static void chancekort(Player[] player, ChanceDeck chanceDeck, int i) {
         if (player[i].currentFelt == 4 || player[i].currentFelt == 10 || player[i].currentFelt == 16 || player[i].currentFelt == 22) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
-            System.out.println(daek.traekkort().toString());
+            System.out.println(chanceDeck.traekkort().toString());
             System.out.println("");
 
         }

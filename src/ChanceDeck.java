@@ -1,13 +1,13 @@
 import java.util.Random;
 
-public class Daek {
+public class ChanceDeck {
 
-    private  Kort[] kort;
+    private  ChanceKort[] chanceKort;
 
 
 
-    public Daek() {
-        kort = new Kort[16];
+    public ChanceDeck() {
+        chanceKort = new ChanceKort[16];
         inispil();
     }
 
@@ -67,31 +67,31 @@ public class Daek {
                     break;
 
             }
-            kort[i] = new Kort(action);
+            chanceKort[i] = new ChanceKort(action);
 
 
         }
     }
 
-    public Kort traekkort(){
-        Kort trukket = kort[0];
-        for (int i = 0; i<kort.length-1;i++){
-            kort[i] = kort[i+1];
+    public ChanceKort traekkort(){
+        ChanceKort trukket = chanceKort[0];
+        for (int i = 0; i< chanceKort.length-1; i++){
+            chanceKort[i] = chanceKort[i+1];
         }
-        kort[kort.length-1]= trukket;
+        chanceKort[chanceKort.length-1]= trukket;
         return trukket;
     }
 
     public void blandkort(){
         int index;
-        Kort temp;
+        ChanceKort temp;
         Random random = new Random();
-        for (int i = kort.length - 1; i > 0; i--)
+        for (int i = chanceKort.length - 1; i > 0; i--)
         {
             index = random.nextInt(i + 1);
-            temp = kort[index];
-            kort[index] = kort[i];
-            kort[i] = temp;
+            temp = chanceKort[index];
+            chanceKort[index] = chanceKort[i];
+            chanceKort[i] = temp;
         }
         //Collections.shuffle(Arrays.asList(kort));
     }
