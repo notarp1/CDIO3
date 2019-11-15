@@ -13,23 +13,22 @@ public class Main {
 
                 System.out.println("Spiller indtast dit navn");
                 player[i] = new Player(20);
-                System.out.println("Navn " + player[i].playerName);
+                System.out.println("Navn " + player[i].playerName + "\nBalance: " + player[i].balance);
             }
         } else if (playerNumber.numberOfPlayers == 3) {
             for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
 
                 System.out.println("Spiller indtast dit navn");
                 player[i] = new Player(18);
-                System.out.println("Navn " + player[i].playerName);
+                System.out.println("Navn " + player[i].playerName + "\nBalance: " + player[i].balance);
             }
         } else if (playerNumber.numberOfPlayers >= 4) {
                 for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
 
                     System.out.println("Spiller indtast dit navn");
                     player[i] = new Player(18);
-                    System.out.println("Navn " + player[i].playerName);
+                    System.out.println("Navn: " + player[i].playerName + "\nBalance: " + player[i].balance);
                 }
-
             }
 
         Shaker shaker;
@@ -49,7 +48,6 @@ public class Main {
                 System.out.println("Tryk 1 for at rulle terningerne " + player[i]);
                 String valg = scan.nextLine();
                 if (valg.equals("1")) {
-
 
                     shaker.rollDice();
 
