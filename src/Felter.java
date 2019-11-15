@@ -1,5 +1,5 @@
 public class Felter {
-
+// skal nok laves om til arrays, FARVE[], PRIS[], NAVN[]
     public void Felter(){
         int x;
         switch (x) {
