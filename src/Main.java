@@ -26,7 +26,7 @@ public class Main {
                 for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
 
                     System.out.println("Spiller indtast dit navn");
-                    player[i] = new Player(18);
+                    player[i] = new Player(16);
                     System.out.println("Navn: " + player[i].playerName + "\nBalance: " + player[i].balance);
                 }
             }
@@ -52,7 +52,7 @@ public class Main {
 
                     player[i].currentFelt = shaker.die1.getFaceValue() + player[i].previousFelt;
                     player[i].previousFelt = player[i].currentFelt;
-                    System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
+
 
                     if (player[i].previousFelt > 24) {
 
@@ -63,7 +63,9 @@ public class Main {
 
                         chancekort(player, chanceDeck, i);
 
-                    } else chancekort(player, chanceDeck, i);
+                    } else
+                        System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
+                        chancekort(player, chanceDeck, i);
                 }
             }
         }
