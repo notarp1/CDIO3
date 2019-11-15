@@ -5,6 +5,8 @@ public class Player {
     private String input;
     String playerName;
 
+    private boolean jailPass = false;
+
     int balance;
     int previousFelt;
     int currentFelt;
