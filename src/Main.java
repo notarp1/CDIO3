@@ -40,6 +40,8 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
+        Felter felt = new Felter();
+
         while(true){
 
             for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
@@ -60,11 +62,15 @@ public class Main {
                         player[i].previousFelt = 0 + player[i].restFelt;
                         player[i].currentFelt = player[i].previousFelt;
                         System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
+                        felt.felt = player[i].currentFelt;
+                        felt.Felter();
 
                         chancekort(player, chanceDeck, i);
 
                     } else
                         System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
+                        felt.felt = player[i].currentFelt;
+                        felt.Felter();
                         chancekort(player, chanceDeck, i);
                 }
             }
@@ -72,7 +78,7 @@ public class Main {
     }
 
     private static void chancekort(Player[] player, ChanceDeck chanceDeck, int i) {
-        if (player[i].currentFelt == 4 || player[i].currentFelt == 10 || player[i].currentFelt == 16 || player[i].currentFelt == 22) {
+        if (player[i].currentFelt == 3 || player[i].currentFelt == 9 || player[i].currentFelt == 15 || player[i].currentFelt == 21) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
             System.out.println(chanceDeck.traekkort().toString());
             System.out.println("");

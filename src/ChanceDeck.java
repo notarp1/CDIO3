@@ -5,7 +5,6 @@ public class ChanceDeck {
     private  ChanceKort[] chanceKort;
 
 
-
     public ChanceDeck() {
         chanceKort = new ChanceKort[16];
         inispil();
