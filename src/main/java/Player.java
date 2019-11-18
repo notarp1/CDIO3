@@ -11,13 +11,13 @@ public class Player {
     int restFelt;
 
     Player(int startBalance){
-        Username();
+        username();
         balance = startBalance;
         currentFelt = 0;
         previousFelt = 0;
     }
 
-    private void Username(){
+    private void username(){
         Scanner scan = new Scanner(System.in);
         playerName = scan.nextLine();
     }

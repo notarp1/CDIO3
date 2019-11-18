@@ -1,21 +1,19 @@
 import java.util.Random;
 
-public class ChanceDeck {
+class ChanceDeck {
+    private ChanceCard[] deck;
 
-    private  ChanceKort[] chanceKort;
+    private static int numberOfCards = 16;
 
-
-    public ChanceDeck() {
-        chanceKort = new ChanceKort[16];
-        inispil();
+    ChanceDeck() {
+        deck = new ChanceCard[numberOfCards];
+        createDeck();
     }
 
-    private void inispil(){
-
-        for(int i = 0; i<16; i++){
+    private void createDeck() {
+        for (int i = 0; i < numberOfCards; i++) {
             String action = "";
             switch (i){
-
                 case 0:
                     action = "Ryk frem til start \n Modtag 2M";
                     break;
@@ -66,33 +64,25 @@ public class ChanceDeck {
                     break;
 
             }
-            chanceKort[i] = new ChanceKort(action);
-
-
+            deck[i] = new ChanceCard(action);
         }
     }
 
-    public ChanceKort traekkort(){
-        ChanceKort trukket = chanceKort[0];
-        for (int i = 0; i< chanceKort.length-1; i++){
-            chanceKort[i] = chanceKort[i+1];
-        }
-        chanceKort[chanceKort.length-1]= trukket;
+    ChanceCard draw(){
+        ChanceCard trukket = deck[0];
+        System.arraycopy(deck, 1, deck, 0, deck.length - 1);
+        deck[deck.length-1]= trukket;
         return trukket;
     }
 
-    public void blandkort(){
-        int index;
-        ChanceKort temp;
-        Random random = new Random();
-        for (int i = chanceKort.length - 1; i > 0; i--)
-        {
-            index = random.nextInt(i + 1);
-            temp = chanceKort[index];
-            chanceKort[index] = chanceKort[i];
-            chanceKort[i] = temp;
+    void shuffle(){
+        Random rand = new Random();
+        for (int i = 0; i < deck.length; i++) {
+            int randomIndexToSwap = rand.nextInt(deck.length);
+            ChanceCard temp = deck[randomIndexToSwap];
+            deck[randomIndexToSwap] = deck[i];
+            deck[i] = temp;
         }
-        //Collections.shuffle(Arrays.asList(kort));
     }
 
 

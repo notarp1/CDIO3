@@ -1,15 +1,14 @@
-public class ChanceKort {
+class ChanceCard {
 
     private String action;
 
-
-    public ChanceKort(String action){
-
+    ChanceCard(String action){
         this.action = action;
 
     }
 
 
+    @Override
     public String toString() {
         return action;
     }
