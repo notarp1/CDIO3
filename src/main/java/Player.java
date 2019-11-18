@@ -1,11 +1,9 @@
 import java.util.Scanner;
 
 public class Player {
-
-    private String input;
     String playerName;
 
-    private boolean jailPass = false;
+    boolean jailPass = false;
 
     int balance;
     int previousFelt;
@@ -14,19 +12,14 @@ public class Player {
 
     Player(int startBalance){
         Username();
-        playerName = input;
         balance = startBalance;
         currentFelt = 0;
         previousFelt = 0;
-
     }
 
     private void Username(){
-
         Scanner scan = new Scanner(System.in);
-        this.input = scan.nextLine();
-
-
+        playerName = scan.nextLine();
     }
 
     @Override
