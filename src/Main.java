@@ -30,6 +30,7 @@ public class Main {
         // Opret spillerne
         for (int i = 0; i < numberOfPlayers; i++) {
             System.out.println("Spiller indtast dit navn");
+
             players[i] = new Player(startBalance);
             System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].balance);
         }
