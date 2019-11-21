@@ -1,88 +1,85 @@
 import java.util.Scanner;
 
 public class Main {
-
+    private static int numberOfPlayers = 0;
+    private static int startBalance = 0;
+    private static Player[] players;
 
     public static void main(String[] args) {
-
-        NumberOfPlayers playerNumber = new NumberOfPlayers();
-        Player[] player = new Player[playerNumber.numberOfPlayers];
-
-        if (playerNumber.numberOfPlayers == 2) {
-            for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
-
-                System.out.println("Spiller indtast dit navn");
-                player[i] = new Player(20);
-                System.out.println("Navn " + player[i].playerName + "\nBalance: " + player[i].balance);
+        // Hent antallet af spillere og sæt start-balancen ud fra det
+        // Sikrer også at der kun kan spilles med et godkendt antal spillere
+        while (startBalance == 0) {
+            getNumberOfPlayers();
+            players = new Player[numberOfPlayers];
+            switch (numberOfPlayers) {
+                case 2:
+                    startBalance = 20;
+                    break;
+                case 3:
+                    startBalance = 18;
+                    break;
+                case 4:
+                    startBalance = 16;
+                    break;
+                default:
+                    System.out.println("Det var ikke et understøttet antal spillere.");
+                    break;
             }
-        } else if (playerNumber.numberOfPlayers == 3) {
-            for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
+        }
 
-                System.out.println("Spiller indtast dit navn");
-                player[i] = new Player(18);
-                System.out.println("Navn " + player[i].playerName + "\nBalance: " + player[i].balance);
-            }
-        } else if (playerNumber.numberOfPlayers >= 4) {
-                for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
+        // Opret spillerne
+        for (int i = 0; i < numberOfPlayers; i++) {
+            System.out.println("Spiller indtast dit navn");
+            players[i] = new Player(startBalance);
+            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].balance);
+        }
 
-                    System.out.println("Spiller indtast dit navn");
-                    player[i] = new Player(16);
-                    System.out.println("Navn: " + player[i].playerName + "\nBalance: " + player[i].balance);
-                }
-            }
-
-        Shaker shaker;
-        shaker = new Shaker();
+        Shaker shaker = new Shaker();
 
         ChanceDeck chanceDeck = new ChanceDeck();
-        chanceDeck.blandkort();
-
+        chanceDeck.shuffle();
 
         Scanner scan = new Scanner(System.in);
 
-        Felter felt = new Felter();
-
-        while(true){
-
-            for (int i = 0; i < playerNumber.numberOfPlayers; i++) {
-
-                System.out.println("Tryk 1 for at rulle terningerne " + player[i]);
+        boolean playing = true;
+        while (playing) {
+            for (Player player : players) {
+                System.out.println("Tryk 1 for at rulle terningerne " + player.toString());
                 String valg = scan.nextLine();
                 if (valg.equals("1")) {
-
                     shaker.rollDice();
 
-                    player[i].currentFelt = shaker.die1.getFaceValue() + player[i].previousFelt;
-                    player[i].previousFelt = player[i].currentFelt;
+                    player.currentFelt = shaker.die1.getFaceValue() + player.previousFelt;
+                    player.previousFelt = player.currentFelt;
 
-
-                    if (player[i].previousFelt > 24) {
-
-                        player[i].restFelt = player[i].previousFelt - 24;
-                        player[i].previousFelt = 0 + player[i].restFelt;
-                        player[i].currentFelt = player[i].previousFelt;
-                        System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
-                        felt.felt = player[i].currentFelt;
-                        felt.Felter();
-
-                        chancekort(player, chanceDeck, i);
-
-                    } else
-                        System.out.println(player[i].toString() + " lander på felt " + player[i].currentFelt);
-                        felt.felt = player[i].currentFelt;
-                        felt.Felter();
-                        chancekort(player, chanceDeck, i);
+                    if (player.previousFelt > 24) {
+                        player.restFelt = player.previousFelt - 24;
+                        player.previousFelt = player.restFelt;
+                        player.currentFelt = player.previousFelt;
+                    }
+                    System.out.println(player.toString() + " lander på felt " + player.currentFelt);
+                    chancekort(player, chanceDeck);
+                }
+                if (player.balance <= 0) {
+                    playing = false;
+                    break;
                 }
             }
         }
     }
 
-    private static void chancekort(Player[] player, ChanceDeck chanceDeck, int i) {
-        if (player[i].currentFelt == 3 || player[i].currentFelt == 9 || player[i].currentFelt == 15 || player[i].currentFelt == 21) {
+    private static void chancekort(Player player, ChanceDeck chanceDeck) {
+        if (player.currentFelt == 4 || player.currentFelt == 10 || player.currentFelt == 16 || player.currentFelt == 22) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
-            System.out.println(chanceDeck.traekkort().toString());
+            System.out.println(chanceDeck.draw().toString());
             System.out.println("");
-
         }
+    }
+
+    private static void getNumberOfPlayers(){
+        System.out.println("Indtast ønskede antal spillere");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        numberOfPlayers = Integer.parseInt(input);
     }
 }

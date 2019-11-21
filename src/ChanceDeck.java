@@ -72,7 +72,7 @@ public class ChanceDeck {
         }
     }
 
-    public ChanceKort traekkort(){
+    public ChanceKort draw(){
         ChanceKort trukket = chanceKort[0];
         for (int i = 0; i< chanceKort.length-1; i++){
             chanceKort[i] = chanceKort[i+1];
@@ -81,7 +81,7 @@ public class ChanceDeck {
         return trukket;
     }
 
-    public void blandkort(){
+    public void shuffle(){
         int index;
         ChanceKort temp;
         Random random = new Random();
