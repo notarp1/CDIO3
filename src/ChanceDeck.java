@@ -81,7 +81,7 @@ public class ChanceDeck {
         return trukket;
     }
 
-    public void shuffle(){
+    public void shuffle (){
         int index;
         ChanceKort temp;
         Random random = new Random();

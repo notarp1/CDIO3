@@ -7,23 +7,24 @@ public class Player {
 
     private boolean jailPass = false;
 
+    int previousFelt = 0;
+    int currentFelt = 0;
+    int restFelt = 0;
     int balance;
 
-    int previousFelt;
-    int currentFelt;
-    int restFelt;
+
 
     Player(int startBalance){
-        Username();
-        this.account = new Account(startBalance , 0 , 0 , 0 );
+        Account account = new Account();
+        setUsername();
         playerName = input;
         balance = startBalance;
-        currentFelt = 0;
-        previousFelt = 0;
+        account.balance = balance;
+
 
     }
 
-    private void Username(){
+    private void setUsername(){
 
         Scanner scan = new Scanner(System.in);
         this.input = scan.nextLine();
