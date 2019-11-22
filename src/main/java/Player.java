@@ -1,8 +1,11 @@
+import gui_main.GUI;
+
 import java.util.Scanner;
 
 class Player {
     String playerName;
     Account account;
+    GUI gui;
 
     boolean jailPass = false;
 
@@ -11,16 +14,16 @@ class Player {
     int currentFelt;
     int restFelt;
 
-    Player(int startBalance){
+    Player(GUI gui, int startBalance) {
+        this.gui = gui;
         username();
-        account = new Account();
+        account = new Account(startBalance);
         currentFelt = 0;
         previousFelt = 0;
     }
 
     private void username(){
-        Scanner scan = new Scanner(System.in);
-        playerName = scan.nextLine();
+        playerName = gui.getUserString("Spiller indtast dit navn");
     }
 
     @Override

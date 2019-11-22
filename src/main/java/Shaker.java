@@ -1,15 +1,15 @@
 class Shaker {
 
-    public Die die1;
+    public Die die;
 
     Shaker() {
-        die1 = new Die();
+        die = new Die();
     }
 
     int rollDice(){
-        die1.roll();
-        System.out.println("Du slog: " + die1.getFaceValue());
-        return die1.getFaceValue();
+        int val = die.roll();
+        System.out.println("Du slog: " + val);
+        return val;
     }
 
 

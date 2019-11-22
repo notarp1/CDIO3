@@ -8,6 +8,10 @@ class Account {
         currentBalance = startBalance;
     }
 
+    int getBalance() {
+        return this.currentBalance;
+    }
+
 }
 
 

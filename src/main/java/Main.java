@@ -1,3 +1,5 @@
+import gui_main.GUI;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,8 +9,10 @@ public class Main {
     private static Shaker shaker;
     private static ChanceDeck chanceDeck;
     private static Scanner scan;
+    private static GUI gui;
 
     public static void main(String[] args) {
+        initVars();
         startGame();
 
         boolean playing = true;
@@ -31,10 +35,7 @@ public class Main {
     }
 
     private static void getNumberOfPlayers() {
-        System.out.println("Indtast ønskede antal spillere");
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        numberOfPlayers = Integer.parseInt(input);
+        numberOfPlayers = gui.getUserInteger("Indtast ønskede antal spillere");
     }
 
     private static void setStartBalance() {
@@ -54,6 +55,17 @@ public class Main {
         }
     }
 
+    private static void initVars() {
+        gui = new GUI();
+
+        shaker = new Shaker();
+
+        chanceDeck = new ChanceDeck();
+        chanceDeck.shuffle();
+
+        scan = new Scanner(System.in);
+    }
+
     private static void startGame() {
         // Hent antallet af spillere og sæt start-balancen ud fra det
         // Sikrer også at der kun kan spilles med et godkendt antal spillere
@@ -65,26 +77,17 @@ public class Main {
 
         // Opret spillerne
         for (int i = 0; i < numberOfPlayers; i++) {
-            System.out.println("Spiller indtast dit navn");
-            players[i] = new Player(startBalance);
-            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].balance);
+            players[i] = new Player(gui, startBalance);
+            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].account.getBalance());
         }
-
-        shaker = new Shaker();
-
-        chanceDeck = new ChanceDeck();
-        chanceDeck.shuffle();
-
-        scan = new Scanner(System.in);
     }
 
     private static boolean playRound(Player player) {
-        System.out.println("Tryk 1 for at rulle terningerne " + player.toString());
-        String valg = scan.nextLine();
+        gui.getUserButtonPressed("Rul terningen", "Rul");
 
-        shaker.rollDice();
+        int val = shaker.rollDice();
 
-        player.currentFelt = shaker.die1.getFaceValue() + player.previousFelt;
+        player.currentFelt = val + player.previousFelt;
         player.previousFelt = player.currentFelt;
 
         if (player.previousFelt > 24) {
