@@ -32,60 +32,80 @@ public class Felter {
                     pris = 1;
                     navn = "Burger Baren";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.DARK_GRAY, 1,"Burger Baren");
                     break;
                 case 2:
                     farve = 'B';
                     pris = 1;
                     navn = "Pizzariaet";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.DARK_GRAY, 1, "Pizzariaet");
                     break;
                 case 3:
                     farve = 'A';
                     pris = 0;
                     navn = "CHANCE";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.WHITE, 0, "CHANCE");
                     break;
                 case 4:
                     farve = 'C';
                     pris = 1;
                     navn = "Slikbutikken";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.CYAN, 1,"Slikbutikken");
                     break;
                 case 5:
                     farve = 'C';
                     pris = 1;
                     navn = "Iskiosken";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.CYAN, 1, "Iskiosken");
                     break;
                 case 6:
                     farve = 'A';
                     pris = 0;
                     navn = "PÅ BESØG I FÆNGSEL";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.WHITE, 0,"PÅ BESØG I FÆNGSEL");
                     break;
                 case 7:
                     farve = 'D';
                     pris = 2;
                     navn = "Museet";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.PINK, 2, "Museet");
                     break;
                 case 8:
                     farve = 'D';
                     pris = 2;
                     navn = "Biblioteket";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.PINK, 2, "Biblioteket");
                     break;
                 case 9:
                     farve = 'A';
                     pris = 0;
                     navn = "CHANCE";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.WHITE, 0, "CHANCE");
                     break;
                 case 10:
                     farve = 'E';
                     pris = 2;
                     navn = "Skaterparken";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.ORANGE, 2, "Skaterparken");
                     break;
                 case 11:
                     farve = 'E';
