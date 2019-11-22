@@ -27,6 +27,7 @@ public class Main {
             }
         }
 
+
         // Opret spillerne
         for (int i = 0; i < numberOfPlayers; i++) {
             System.out.println("Spiller indtast dit navn");
@@ -42,6 +43,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
+        ;
         boolean playing = true;
         while (playing) {
             for (Player player : players) {

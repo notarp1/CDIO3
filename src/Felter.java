@@ -4,6 +4,9 @@ public class Felter {
     char farve;
     int pris;
     String navn;
+
+
+
     public int felt;
 
     public void Felter() {
