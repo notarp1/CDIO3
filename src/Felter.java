@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Felter {
 // skal nok laves om til arrays, FARVE[], PRIS[], NAVN[]
 
@@ -5,14 +7,15 @@ public class Felter {
     int pris;
     String navn;
 
+    private static Felt[] felt;
 
 
-    public int felt;
 
     public void Felter() {
 
+        for(int i = 0; i<24; i++){
 
-            switch (felt) {
+            switch (i) {
 
                 // HVID = 'A', BRUN = 'B', LYSEBLÅ = C, PINK = D, ORANGE = E, RØD = F, GUL = G, GRØN= H, BLÅ = I
 
@@ -21,6 +24,8 @@ public class Felter {
                     pris = 0;
                     navn = "Start";
                     System.out.println("Du lander på " + navn);
+
+                    felt[i] = new Felt(Color.WHITE, 0,"Start");
                     break;
                 case 1:
                     farve = 'B';
