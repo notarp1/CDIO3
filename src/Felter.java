@@ -1,19 +1,11 @@
 import java.awt.*;
 
 public class Felter {
-// skal nok laves om til arrays, FARVE[], PRIS[], NAVN[]
-
-    char farve;
-    int pris;
-    String navn;
-
     private static Felt[] felt;
 
     Felter() {
         felt = new Felt[24];
-
     }
-
 
     public void Felter() {
 
@@ -21,102 +13,54 @@ public class Felter {
 
             switch (i) {
 
-                // HVID = 'A', BRUN = 'B', LYSEBLÅ = C, PINK = D, ORANGE = E, RØD = F, GUL = G, GRØN= H, BLÅ = I
-
                 case 0:
-                    farve = 'A';
-                    pris = 0;
-                    navn = "Start";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.WHITE, 0, "Start");
+                    System.out.println(felt[i].n);
                     break;
                 case 1:
-                    farve = 'B';
-                    pris = 1;
-                    navn = "Burger Baren";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.DARK_GRAY, 1,"Burger Baren");
+                    System.out.println(felt[i].n);
                     break;
                 case 2:
-                    farve = 'B';
-                    pris = 1;
-                    navn = "Pizzariaet";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.DARK_GRAY, 1, "Pizzariaet");
+                    System.out.println(felt[i].n);
                     break;
                 case 3:
-                    farve = 'A';
-                    pris = 0;
-                    navn = "CHANCE";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.WHITE, 0, "CHANCE");
+                    System.out.println(felt[i].n);
                     break;
                 case 4:
-                    farve = 'C';
-                    pris = 1;
-                    navn = "Slikbutikken";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.CYAN, 1,"Slikbutikken");
+                    System.out.println(felt[i].n);
                     break;
                 case 5:
-                    farve = 'C';
-                    pris = 1;
-                    navn = "Iskiosken";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.CYAN, 1, "Iskiosken");
+                    System.out.println(felt[i].n);
                     break;
                 case 6:
-                    farve = 'A';
-                    pris = 0;
-                    navn = "PÅ BESØG I FÆNGSEL";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.WHITE, 0,"PÅ BESØG I FÆNGSEL");
+                    System.out.println(felt[i].n);
                     break;
                 case 7:
-                    farve = 'D';
-                    pris = 2;
-                    navn = "Museet";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.PINK, 2, "Museet");
+                    System.out.println(felt[i].n);
                     break;
                 case 8:
-                    farve = 'D';
-                    pris = 2;
-                    navn = "Biblioteket";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.PINK, 2, "Biblioteket");
+                    System.out.println(felt[i].n);
                     break;
                 case 9:
-                    farve = 'A';
-                    pris = 0;
-                    navn = "CHANCE";
-                    System.out.println("Du lander på " + navn);
-
                     felt[i] = new Felt(Color.WHITE, 0, "CHANCE");
+                    System.out.println(felt[i].n);
                     break;
                 case 10:
-                    farve = 'E';
-                    pris = 2;
-                    navn = "Skaterparken";
-                    System.out.println("Du lander på " + navn);
 
                     felt[i] = new Felt(Color.ORANGE, 2, "Skaterparken");
+                    System.out.println(felt[i].n);
                     break;
                 case 11:
-                    farve = 'E';
-                    pris = 2;
-                    navn = "Swimmingpoolen";
-                    System.out.println("Du lander på " + navn);
                     felt[i] = new Felt(Color.ORANGE, 2, "Swimmingpoolen");
+                    System.out.println(felt[i].n);
                     break;
                 case 12:
                     felt[i] = new Felt(Color.WHITE, 0, "GRATIS PARKERING");
