@@ -1,12 +1,12 @@
 class Account {
 
-    int startBalance;
-    int currentBalance;
-    int oldBalance;
+    private int currentBalance;
 
     int caseNumber;
 
-
+    Account(int startBalance) {
+        currentBalance = startBalance;
+    }
 
 }
 

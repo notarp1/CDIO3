@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public class Player {
+class Player {
     String playerName;
+    Account account;
 
     boolean jailPass = false;
 
@@ -12,7 +13,7 @@ public class Player {
 
     Player(int startBalance){
         username();
-        balance = startBalance;
+        account = new Account();
         currentFelt = 0;
         previousFelt = 0;
     }
