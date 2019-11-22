@@ -86,16 +86,13 @@ public class Main {
         gui.getUserButtonPressed("Rul terningen", "Rul");
 
         int val = shaker.rollDice();
+        gui.setDie(val);
 
-        player.currentFelt = val + player.previousFelt;
-        player.previousFelt = player.currentFelt;
-
-        if (player.previousFelt > 24) {
-            player.restFelt = player.previousFelt - 24;
-            player.previousFelt = player.restFelt;
-            player.currentFelt = player.previousFelt;
-        }
+        player.currentFelt += val;
+        if (player.currentFelt > 24)
+            player.currentFelt -= 24;
         System.out.println(player.toString() + " lander på felt " + player.currentFelt);
+
         chancekort(player, chanceDeck);
 
         return player.balance > 0;

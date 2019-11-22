@@ -10,16 +10,13 @@ class Player {
     boolean jailPass = false;
 
     int balance;
-    int previousFelt;
     int currentFelt;
-    int restFelt;
 
     Player(GUI gui, int startBalance) {
         this.gui = gui;
         username();
         account = new Account(startBalance);
         currentFelt = 0;
-        previousFelt = 0;
     }
 
     private void username(){
