@@ -96,6 +96,7 @@ public class Felter {
                     pris = 2;
                     navn = "Swimmingpoolen";
                     System.out.println("Du lander på " + navn);
+                    felt[i] = new Felt(Color.ORANGE, 2, "Swimmingpoolen");
                     break;
                 case 12:
                     felt[i] = new Felt(Color.WHITE, 0, "GRATIS PARKERING");
