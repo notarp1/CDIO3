@@ -9,9 +9,9 @@ class Shaker {
         die1 = new Die();
     }
 
-    int rollDice(){
+    int rollDice(Player player){
         die1.roll();
-        System.out.println("Du slog: " + die1.getFaceValue());
+        System.out.println(player +" slog: " + die1.getFaceValue());
         return die1.getFaceValue();
 
 

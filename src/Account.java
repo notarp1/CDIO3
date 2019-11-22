@@ -1,12 +1,16 @@
 class Account {
     int balance;
 
-    Account(){
+    Account(int startBalance){
+        this.balance = startBalance;
 
     }
 
-    void updateBalance(int diff) {
-        balance += diff;
+    public int updateBalance(int diff){
+        this.balance += diff;
+       return this.balance;
+
+
     }
 }
 

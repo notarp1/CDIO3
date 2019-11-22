@@ -4,10 +4,15 @@ public class Main {
     private static int numberOfPlayers = 0;
     private static int startBalance = 0;
     private static Player[] players;
+    private static Shaker shaker;
+    private static ChanceDeck chanceDeck;
+    private static Scanner scan;
+
+
+
 
     public static void main(String[] args) {
-        // Hent antallet af spillere og sæt start-balancen ud fra det
-        // Sikrer også at der kun kan spilles med et godkendt antal spillere
+        Brik brik = new Brik();
         while (startBalance == 0) {
             getNumberOfPlayers();
             players = new Player[numberOfPlayers];
@@ -26,77 +31,85 @@ public class Main {
                     break;
             }
         }
-
-
-        // Opret spillerne
         for (int i = 0; i < numberOfPlayers; i++) {
             System.out.println("Spiller indtast dit navn");
 
             players[i] = new Player(startBalance);
-            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].balance);
+            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].account.balance);
+            brik.brikSelect();
         }
 
-        Shaker shaker = new Shaker();
-
-        ChanceDeck chanceDeck = new ChanceDeck();
-        chanceDeck.shuffle();
+       initVars();
 
         Felter felter = new Felter();
-
-        Scanner scan = new Scanner(System.in);
 
         boolean playing = true;
         while (playing) {
             for (Player player : players) {
                 System.out.println("Tryk 1 for at rulle terningerne " + player.toString());
                 String valg = scan.nextLine();
+
                 if (valg.equals("1")) {
-                    shaker.rollDice();
+                    int val = shaker.rollDice(player);
 
-                    player.currentFelt = shaker.die1.getFaceValue() + player.previousFelt;
-                    player.previousFelt = player.currentFelt;
+                   player.currentFelt += val;
 
-                    if (player.previousFelt > 24) {
-                        player.restFelt = player.previousFelt - 24;
-                        player.previousFelt = player.restFelt;
-                        player.currentFelt = player.previousFelt;
-                        isOwned(felter, player);
+                    if (player.currentFelt > 24) {
+                        player.currentFelt -= 24;
+                        System.out.println(player.toString() + " lander på felt " + player.currentFelt);
+                        isOwned(felter,player);
+                        chancekort(player);
 
+                    } else
+
+                    isOwned(felter,player);
+
+                    chancekort(player);
+                    if (player.account.balance <= 0) {
+                        playing = false;
+                        break;
                     }
-
-                    isOwned(felter, player);
-
-                    System.out.println(player.toString() + " lander på felt " + player.currentFelt);
-                    chancekort(player, chanceDeck);
                 }
-                if (player.balance <= 0) {
-                    playing = false;
-                    break;
-                }
+
             }
         }
     }
 
-     private static void isOwned(Felter felter, Player player) {
+    private static void isOwned(Felter felter, Player player) {
         Felt felt = felter.felt[player.currentFelt];
         Player owner = felt.getOwner();
 
+
         if (!felt.owned) {
             felt.setOwner(player);
-            player.account.updateBalance(-felt.p);
-            System.out.println(player.playerName + " køber: " + felt.n);
+            player.account.updateBalance(- felt.p);
+            System.out.println("Du lander på felt " + player.currentFelt + " og køber " + felt.n + " for " + felt.p + " millioner");
             System.out.println(player.playerName + " nuværende balance: " + player.account.balance);
-        }else if (owner != player) {
-            player.account.updateBalance(-felt.p);
+        }
+        else if (owner != player) {
+            player.account.updateBalance(- felt.p);
             owner.account.updateBalance(felt.p);
-            System.out.println(player.playerName + " lander på: " + felt.n + "\n" + "Nuværende ejer: " + owner.playerName);
-            System.out.println(player.playerName + " nuværende balance: " + owner.account.balance);
+            System.out.println("Du lander på felt " + felt.n + "\n" + "Nuværende ejer: " + owner.playerName +
+                    "\n" + player.playerName + " betaler " + owner.playerName + " "+ felt.p + " millioner");
+            System.out.println(player.playerName + " nuværende balance: " + player.account.balance);
             System.out.println(owner.playerName + " nuværende balance: " + owner.account.balance);
         }
     }
 
 
-    private static void chancekort(Player player, ChanceDeck chanceDeck) {
+    private static void initVars() {
+
+        shaker = new Shaker();
+        chanceDeck = new ChanceDeck();
+        chanceDeck.shuffle();
+
+        scan = new Scanner(System.in);
+
+    }
+
+
+
+    private static void chancekort(Player player) {
         if (player.currentFelt == 4 || player.currentFelt == 10 || player.currentFelt == 16 || player.currentFelt == 22) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
             System.out.println(chanceDeck.draw().toString());

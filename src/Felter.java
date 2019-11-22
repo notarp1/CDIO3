@@ -96,6 +96,8 @@ public class Felter {
                     felt[i] = new Felt(Color.BLUE, 5, "Strandpromenaden");
                     break;
 
+
+
             }
         }
     }

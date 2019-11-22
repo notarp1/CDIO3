@@ -1,26 +1,23 @@
 import java.util.Scanner;
 
 public class Player {
-    Account account;
+
+
+    public Account account;
     private String input;
     String playerName;
 
     private boolean jailPass = false;
 
-    int previousFelt = 0;
     int currentFelt = 0;
-    int restFelt = 0;
-    int balance;
+
 
 
 
     Player(int startBalance){
-        Account account = new Account();
+        this.account = new Account(startBalance);
         setUsername();
         playerName = input;
-        balance = startBalance;
-        account.balance = balance;
-
 
     }
 
@@ -29,8 +26,13 @@ public class Player {
         Scanner scan = new Scanner(System.in);
         this.input = scan.nextLine();
 
-
     }
+
+
+
+
+
+
 
     @Override
     public String toString() {
