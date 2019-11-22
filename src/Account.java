@@ -4,6 +4,10 @@ class Account {
     Account(){
 
     }
+
+    void updateBalance(int diff) {
+        balance += diff;
+    }
 }
 
 

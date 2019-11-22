@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Player {
-    private Account account;
+    Account account;
     private String input;
     String playerName;
 

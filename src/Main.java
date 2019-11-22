@@ -41,9 +41,10 @@ public class Main {
         ChanceDeck chanceDeck = new ChanceDeck();
         chanceDeck.shuffle();
 
+        Felter felter = new Felter();
+
         Scanner scan = new Scanner(System.in);
 
-        ;
         boolean playing = true;
         while (playing) {
             for (Player player : players) {
@@ -59,7 +60,12 @@ public class Main {
                         player.restFelt = player.previousFelt - 24;
                         player.previousFelt = player.restFelt;
                         player.currentFelt = player.previousFelt;
+                        isOwned(felter, player);
+
                     }
+
+                    isOwned(felter, player);
+
                     System.out.println(player.toString() + " lander på felt " + player.currentFelt);
                     chancekort(player, chanceDeck);
                 }
@@ -70,6 +76,25 @@ public class Main {
             }
         }
     }
+
+     private static void isOwned(Felter felter, Player player) {
+        Felt felt = felter.felt[player.currentFelt];
+        Player owner = felt.getOwner();
+
+        if (!felt.owned) {
+            felt.setOwner(player);
+            player.account.updateBalance(-felt.p);
+            System.out.println(player.playerName + " køber: " + felt.n);
+            System.out.println(player.playerName + " nuværende balance: " + player.account.balance);
+        }else if (owner != player) {
+            player.account.updateBalance(-felt.p);
+            owner.account.updateBalance(felt.p);
+            System.out.println(player.playerName + " lander på: " + felt.n + "\n" + "Nuværende ejer: " + owner.playerName);
+            System.out.println(player.playerName + " nuværende balance: " + owner.account.balance);
+            System.out.println(owner.playerName + " nuværende balance: " + owner.account.balance);
+        }
+    }
+
 
     private static void chancekort(Player player, ChanceDeck chanceDeck) {
         if (player.currentFelt == 4 || player.currentFelt == 10 || player.currentFelt == 16 || player.currentFelt == 22) {
