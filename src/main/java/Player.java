@@ -1,26 +1,36 @@
 import gui_main.GUI;
 
-import java.util.Scanner;
-
 class Player {
-    String playerName;
+    private static String playerName;
     Account account;
-    GUI gui;
+    private GUI gui;
 
-    boolean jailPass = false;
+    private static boolean jailpass = false;
 
-    int balance;
-    int currentFelt;
+    int currentField;
+    int age;
 
     Player(GUI gui, int startBalance) {
         this.gui = gui;
         username();
         account = new Account(startBalance);
-        currentFelt = 0;
+        currentField = 0;
     }
 
-    private void username(){
+    private void username() {
         playerName = gui.getUserString("Spiller indtast dit navn");
+    }
+
+    String getPlayerName() {
+        return playerName;
+    }
+
+    void addJailpass() {
+        jailpass = true;
+    }
+
+    void useJailpass() {
+        jailpass = false;
     }
 
     @Override

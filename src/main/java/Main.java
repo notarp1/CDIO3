@@ -27,7 +27,7 @@ public class Main {
     }
 
     private static void chancekort(Player player, ChanceDeck chanceDeck) {
-        if (player.currentFelt == 4 || player.currentFelt == 10 || player.currentFelt == 16 || player.currentFelt == 22) {
+        if (player.currentField == 4 || player.currentField == 10 || player.currentField == 16 || player.currentField == 22) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
             System.out.println(chanceDeck.draw().toString());
             System.out.println("");
@@ -78,7 +78,7 @@ public class Main {
         // Opret spillerne
         for (int i = 0; i < numberOfPlayers; i++) {
             players[i] = new Player(gui, startBalance);
-            System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].account.getBalance());
+            System.out.println("Navn " + players[i].getPlayerName() + "\nBalance: " + players[i].account.getBalance());
         }
     }
 
@@ -88,13 +88,13 @@ public class Main {
         int val = shaker.rollDice();
         gui.setDie(val);
 
-        player.currentFelt += val;
-        if (player.currentFelt > 24)
-            player.currentFelt -= 24;
-        System.out.println(player.toString() + " lander på felt " + player.currentFelt);
+        player.currentField += val;
+        if (player.currentField > 24)
+            player.currentField -= 24;
+        System.out.println(player.toString() + " lander på felt " + player.currentField);
 
         chancekort(player, chanceDeck);
 
-        return player.balance > 0;
+        return player.account.getBalance() > 0;
     }
 }
