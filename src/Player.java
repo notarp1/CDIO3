@@ -11,7 +11,7 @@ public class Player {
 
     int currentFelt = 0;
 
-
+    public String brik = "";
 
 
     Player(int startBalance){
@@ -27,10 +27,6 @@ public class Player {
         this.input = scan.nextLine();
 
     }
-
-
-
-
 
 
 

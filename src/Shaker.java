@@ -2,7 +2,7 @@ import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 class Shaker {
 
-    public Die die1;
+    private Die die1;
     int facevalue;
 
     Shaker() {

@@ -20,7 +20,6 @@ class Brik {
 
             if (characterSelect.equals("1")) {
                 if (!skibLock) {
-                    boolean skib = true;
                     this.skibLock = true;
                     System.out.println("Du har valgt skibet");
                     break;
@@ -33,7 +32,6 @@ class Brik {
 
             if (characterSelect.equals("2")) {
                 if (!hundLock) {
-                    boolean hund = true;
                     this.hundLock = true;
                     System.out.println("Du har valgt Hunden");
                     break;
@@ -48,7 +46,6 @@ class Brik {
 
             if (characterSelect.equals("3")) {
                 if (!katLock) {
-                    boolean kat = true;
                     this.katLock = true;
                     System.out.println("Du har valgt Katten");
                     break;
@@ -56,24 +53,19 @@ class Brik {
             }
             if (katLock && characterSelect.equals("3")) {
                 System.out.println("Katten er allerede taget");
-
                 continue;
             }
 
             if (characterSelect.equals("4")) {
                 if (!bilLock) {
-                    boolean bil = true;
                     this.bilLock = true;
                     System.out.println("Du har valgt Bilen");
                     break;
-
                 }
             }
             if (bilLock && characterSelect.equals("4")) {
                     System.out.println("Bilen er allerede taget");
-
                 }
-
             }
         }
     }

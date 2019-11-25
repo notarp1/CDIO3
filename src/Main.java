@@ -36,7 +36,7 @@ public class Main {
 
             players[i] = new Player(startBalance);
             System.out.println("Navn " + players[i].playerName + "\nBalance: " + players[i].account.balance);
-            //brik.brikSelect();
+            brik.brikSelect();
         }
 
        initVars();
@@ -113,7 +113,6 @@ public class Main {
         scan = new Scanner(System.in);
 
     }
-
 
 
     private static void chancekort(Player player) {
