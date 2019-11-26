@@ -15,7 +15,7 @@ public class Felter {
 
                     break;
                 case 1:
-                    felt[i] = new Felt(Color.DARK_GRAY, 1,"Burger Baren");
+                    felt[i] = new Felt(Color.DARK_GRAY, 1, "Burger Baren");
 
                     break;
                 case 2:
@@ -30,14 +30,14 @@ public class Felter {
 
                     break;
                 case 4:
-                    felt[i] = new Felt(Color.CYAN, 1,"Slikbutikken");
+                    felt[i] = new Felt(Color.CYAN, 1, "Slikbutikken");
 
                     break;
                 case 5:
                     felt[i] = new Felt(Color.CYAN, 1, "Iskiosken");
                     break;
                 case 6:
-                    felt[i] = new Felt(Color.WHITE, 0,"PÅ BESØG I FÆNGSEL");
+                    felt[i] = new Felt(Color.WHITE, 0, "PÅ BESØG I FÆNGSEL");
 
                     break;
                 case 7:
@@ -95,7 +95,6 @@ public class Felter {
                 case 23:
                     felt[i] = new Felt(Color.BLUE, 5, "Strandpromenaden");
                     break;
-
 
 
             }
