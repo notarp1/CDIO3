@@ -6,7 +6,6 @@ public class ChanceKort {
     public ChanceKort(String action){
 
         this.action = action;
-
     }
 
 
