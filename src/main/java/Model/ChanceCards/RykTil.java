@@ -5,6 +5,7 @@ public class RykTil extends Kort {
         super(cardNumber);
     }
 
+    @Override
     public String toString(){
         description = "";
         switch (cardNumber){

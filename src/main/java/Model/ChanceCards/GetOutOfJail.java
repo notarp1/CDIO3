@@ -4,6 +4,8 @@ public class GetOutOfJail extends Kort {
     public GetOutOfJail(int cardNumber) {
         super(cardNumber);
     }
+
+    @Override
     public String toString(){
         switch (cardNumber){
             case 14:

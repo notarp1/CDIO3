@@ -4,6 +4,8 @@ public class Ryk5 extends Kort {
     public Ryk5(int cardNumber) {
         super(cardNumber);
     }
+
+    @Override
     public String toString(){
         switch (cardNumber){
             case 13:

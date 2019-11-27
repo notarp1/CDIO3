@@ -5,14 +5,11 @@ public class Account {
 
     Account(int startBalance){
         this.balance = startBalance;
-
     }
 
     public int updateBalance(int diff){
         this.balance += diff;
-       return this.balance;
-
-
+        return this.balance;
     }
 }
 

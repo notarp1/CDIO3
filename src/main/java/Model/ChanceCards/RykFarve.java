@@ -5,6 +5,7 @@ public class RykFarve extends Kort {
         super(cardNumber);
     }
 
+    @Override
     public String toString(){
         description = "";
         switch (cardNumber){

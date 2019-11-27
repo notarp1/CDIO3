@@ -6,6 +6,7 @@ public class BankKort extends Kort {
         super(cardNumber);
     }
 
+    @Override
     public String toString(){
             description = "";
             action = "";
