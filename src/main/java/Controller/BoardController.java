@@ -9,7 +9,7 @@ import gui_main.GUI;
 
 import java.util.Scanner;
 
-public class BoardController {
+public class    BoardController {
     private static int numberOfPlayers = 0;
     private static int startBalance = 0;
     private static Player[] players;

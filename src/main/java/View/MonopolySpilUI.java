@@ -1,11 +1,12 @@
-package view;
+package View;
 
 import Controller.BoardController;
 
 public class MonopolySpilUI {
+static BoardController boardController;
 
     public static void main(String[] args) {
-        BoardController boardController = new BoardController();
+        boardController = new BoardController();
 
     }
 
