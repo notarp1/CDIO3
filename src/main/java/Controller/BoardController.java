@@ -179,8 +179,8 @@ public class    BoardController {
                     "\n" + owner.playerName + " nuværende balance: " + owner.account.balance);
         } else if (player.currentFelt == 3 || player.currentFelt == 9 || player.currentFelt == 15 || player.currentFelt == 21 || player.currentFelt ==0 ||
                 player.currentFelt ==6 || player.currentFelt ==12 || player.currentFelt ==18) {
-            System.out.println("Du lander på felt " + player.currentFelt + "\n" + felt.n);
-            gui.showMessage("Du lander på felt " + player.currentFelt + "\n" + felt.n);
+            System.out.println(player.playerName + " lander på felt " + player.currentFelt + "\n" + felt.n);
+            gui.showMessage(player.playerName +" lander på felt " + player.currentFelt + "\n" + felt.n);
         }
     }
 
@@ -198,8 +198,10 @@ public class    BoardController {
     private static void chancekort(Player player) {
         if (player.currentFelt == 3 || player.currentFelt == 9 || player.currentFelt == 15 || player.currentFelt == 21) {
             System.out.println("____________________ \n CHANCEKORT \n____________________ \n");
-            System.out.println(chanceDeck.draw().toString());
+            String chanceKort = chanceDeck.draw().toString();
+            System.out.println(chanceKort);
             System.out.println("");
+            gui.showMessage(chanceKort);
         }
     }
 
