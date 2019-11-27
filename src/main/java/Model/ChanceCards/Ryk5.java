@@ -7,11 +7,11 @@ public class Ryk5 extends Kort {
     public String toString(){
         switch (cardNumber){
             case 13:
-                discription = "Ryk op til 5 felter frem\n";
+                description = "Ryk op til 5 felter frem\n";
                 break;
             default:
-                discription += cardNumber+0;
+                description += cardNumber+0;
         }
-        return discription;
+        return description;
     }
 }
