@@ -1,5 +1,7 @@
-class Account {
-    int balance;
+package Model;
+
+public class Account {
+    public int balance;
 
     Account(int startBalance){
         this.balance = startBalance;

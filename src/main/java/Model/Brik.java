@@ -1,6 +1,8 @@
+package Model;
+
 import java.util.Scanner;
 
-class Brik {
+public class Brik {
 
 
     private boolean skibLock = false;
@@ -22,6 +24,7 @@ class Brik {
                 if (!skibLock) {
                     this.skibLock = true;
                     System.out.println("Du har valgt skibet");
+
                     break;
                 }
             }
@@ -34,7 +37,7 @@ class Brik {
                 if (!hundLock) {
                     this.hundLock = true;
                     System.out.println("Du har valgt Hunden");
-                    break;
+                   break;
 
                 }
             }
@@ -48,6 +51,7 @@ class Brik {
                 if (!katLock) {
                     this.katLock = true;
                     System.out.println("Du har valgt Katten");
+
                     break;
                 }
             }
@@ -60,6 +64,7 @@ class Brik {
                 if (!bilLock) {
                     this.bilLock = true;
                     System.out.println("Du har valgt Bilen");
+
                     break;
                 }
             }

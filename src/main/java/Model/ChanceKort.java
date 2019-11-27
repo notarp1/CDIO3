@@ -1,3 +1,5 @@
+package Model;
+
 public class ChanceKort {
 
     private String action;

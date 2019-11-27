@@ -1,9 +1,11 @@
+package Model;
+
 import java.awt.*;
 
 public class Felter {
-    Felt[] felt;
+    public Felt[] felt;
 
-    Felter() {
+    public Felter() {
         felt = new Felt[24];
 
         for (int i = 0; i < 24; i++) {

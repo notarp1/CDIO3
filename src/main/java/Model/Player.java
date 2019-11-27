@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.Scanner;
 
 public class Player {
@@ -5,19 +7,20 @@ public class Player {
 
     public Account account;
     private String input;
-    String playerName;
+    public String playerName;
 
     private boolean jailPass = false;
 
-    int currentFelt = 0;
+    public int currentFelt = 0;
+    public int previousFelt = 0;
 
     public String brik = "";
 
 
-    Player(int startBalance){
+    public Player(int startBalance){
         this.account = new Account(startBalance);
-        setUsername();
-        playerName = input;
+        //setUsername();
+        //playerName = input;
 
     }
 

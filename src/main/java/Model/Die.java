@@ -1,3 +1,5 @@
+package Model;
+
 public class Die
 {
     private final int MAX = 6; // maksimale face value

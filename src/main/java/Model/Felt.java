@@ -1,13 +1,15 @@
+package Model;
+
 import java.awt.*;
 
 public class Felt {
 
 
-    static Color f;
-    int p;
-    String n;
+    public Color f;
+    public int p;
+    public String n;
     Player owner;
-    boolean owned = false;
+    public boolean owned = false;
 
     Felt(Color farve, int pris, String navn){
 
@@ -17,12 +19,12 @@ public class Felt {
 
     }
 
-    void setOwner(Player newOwner) {
+    public void setOwner(Player newOwner) {
         owner = newOwner;
         owned = true;
     }
 
-    Player getOwner() {
+    public Player getOwner() {
         return owner;
     }
 }
