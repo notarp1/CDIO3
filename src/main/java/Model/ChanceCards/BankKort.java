@@ -1,9 +1,27 @@
 package Model.ChanceCards;
 
+import Model.Player;
+import gui_main.GUI;
+
 public class BankKort extends Kort {
 
     public BankKort(int cardNumber) {
         super(cardNumber);
+    }
+
+    @Override
+    public void action(Player player, GUI gui) {
+        switch (this.cardNumber) {
+            case 10:
+                player.updateBalance(-2);
+                break;
+            case 11:
+                break;
+            case 12:
+                player.updateBalance(2);
+                break;
+        }
+        gui.displayChanceCard(toString());
     }
 
     @Override
@@ -26,7 +44,7 @@ public class BankKort extends Kort {
                             "fra banken.\n";
                     break;
                 default:
-                    description += cardNumber +0;
+                    description += cardNumber;
                     break;
             }
             return description;

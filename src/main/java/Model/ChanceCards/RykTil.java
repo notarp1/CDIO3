@@ -1,8 +1,28 @@
 package Model.ChanceCards;
 
+import Model.Player;
+import gui_main.GUI;
+
 public class RykTil extends Kort {
     public RykTil(int cardNumber) {
         super(cardNumber);
+    }
+
+    @Override
+    public void action(Player player, GUI gui) {
+        switch (this.cardNumber) {
+            case 0:
+                player.moveTo(0, true);
+                break;
+            case 3:
+                player.moveTo(23);
+                break;
+            case 5:
+                player.giveFreeBee();
+                player.moveTo(10, false);
+                break;
+        }
+        gui.displayChanceCard(toString());
     }
 
     @Override
@@ -13,26 +33,8 @@ public class RykTil extends Kort {
                 description = "Ryk frem til START\n" +
                         "Modtag M2\n";
                 break;
-            case 1:
-                description = "GRATIS FELT!\n" +
-                        "Ryk frem til et orange felt.\n" +
-                        "Hvis det er ledigt, får du det GRATIS!\n" +
-                        "Ellers skal du betale leje til ejeren.\n";
-                break;
-            case 2:
-                description = "GRATIS FELT!\n" +
-                        "Ryk frem til et lyseblåt felt.\n" +
-                        "Hvis det er ledigt, får du det GRATIS!\n" +
-                        "Ellers skal du betale leje til ejeren.\n";
-                break;
             case 3:
                 description = "Ryk frem til strandpromenaden.\n";
-                break;
-            case 4:
-                description = "GRATIS FELT!\n" +
-                        "Ryk frem til et rødt felt.\n" +
-                        "Hvis det er ledigt, får du det GRATIS!\n" +
-                        "Ellers skal du betale leje til ejeren.\n";
                 break;
             case 5:
                 description = "GRATIS FELT!\n" +
@@ -40,9 +42,8 @@ public class RykTil extends Kort {
                         "Hvis ingen ejer den, får du det GRATIS!\n" +
                         "Ellers skal du betale leje til ejeren.\n";
                 break;
-
             default:
-                description += cardNumber+0;
+                description += cardNumber;
                 break;
         }
         return description;

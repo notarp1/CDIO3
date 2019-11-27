@@ -17,10 +17,10 @@ public class ChanceDeck {
 
     public void cards() {
         korts[0] = new RykTil(0);
-        korts[1] = new RykTil(1);
-        korts[2] = new RykTil(2);
+        korts[1] = new RykFarve(1);
+        korts[2] = new RykFarve(2);
         korts[3] = new RykTil(3);
-        korts[4] = new RykTil(4);
+        korts[4] = new RykFarve(4);
         korts[5] = new RykTil(5);
         korts[6] = new RykFarve(6);
         korts[7] = new RykFarve(7);
