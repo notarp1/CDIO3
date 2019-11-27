@@ -8,6 +8,15 @@ public class Main {
     public static void main(String[] args) {
         // Hent antallet af spillere og sæt start-balancen ud fra det
         // Sikrer også at der kun kan spilles med et godkendt antal spillere
+        ChanceKortDeck chanceKortDeck = new ChanceKortDeck();
+        chanceKortDeck.blandkort();
+        for (int i = 0; i <50; i++){
+            System.out.println(chanceKortDeck.traekkort());
+        }
+
+
+
+
         while (startBalance == 0) {
             getNumberOfPlayers();
             players = new Player[numberOfPlayers];
