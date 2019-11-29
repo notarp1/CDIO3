@@ -24,37 +24,40 @@ public class    BoardController {
         boolean playing = true;
         while (playing) {
             for (Player player : players) {
-                gui.displayChanceCard("");
-                // Hvis spilleren er i fængsel, skal de først betale for at komme ud, med mindre de har det rigtige kort
-                handleGetOutOfJail(player);
-
-                // Slå med terningen når spilleren trykker
-                gui.getUserButtonPressed(player + ", tryk enter/knappen for at slå", "SLÅ");
-
-                // Vis resultatet og opdater felt
-                int val = shaker.rollDice(player);
-                gui.setDie(val);
-                player.move(val);
-
-                // Hvis spilleren lander på et felt over felt 23, så starter de forfra på  brættet
-                handlePassStart(player);
-
-                handleGetInJail(player);
-
-                // Håndter chancekort før et felt der kan ejes, da det kan ske at man bliver flyttet over til et
-                handleChancekort(player);
-                handleOwnable(player);
-
-                handlePassiveStops(player);
-
-                if (player.account.balance <= 0) {
-                    playing = false;
+                playing = handleRound(player);
+                if(!playing)
                     break;
-                }
             }
         }
         findWinners();
         System.exit(0);
+    }
+
+    private static boolean handleRound(Player player) {
+        gui.displayChanceCard("");
+        // Hvis spilleren er i fængsel, skal de først betale for at komme ud, med mindre de har det rigtige kort
+        handleGetOutOfJail(player);
+
+        // Slå med terningen når spilleren trykker
+        gui.getUserButtonPressed(player + ", tryk enter/knappen for at slå", "SLÅ");
+
+        // Vis resultatet og opdater felt
+        int val = shaker.rollDice();
+        gui.setDie(val);
+        player.move(val);
+
+        // Hvis spilleren lander på et felt over felt 23, så starter de forfra på  brættet
+        handlePassStart(player);
+
+        handleGetInJail(player);
+
+        // Håndter chancekort før et felt der kan ejes, da det kan ske at man bliver flyttet over til et
+        handleChancekort(player);
+        handleOwnable(player);
+
+        handlePassiveStops(player);
+
+        return player.account.balance > 0;
     }
 
     private static void handleGetOutOfJail(Player player) {
@@ -159,14 +162,14 @@ public class    BoardController {
         for(Player player : players) {
             if(highestScore < player.account.balance) {
                 highestScore = player.account.balance;
-                winners++;
+                winners = 1;
             } else if(highestScore == player.account.balance) {
                 winners++;
             }
         }
         StringBuilder msg = new StringBuilder();
         if(winners > 1) {
-            msg = new StringBuilder("Der er to vindere!\nTillykke til:\n");
+            msg = new StringBuilder("Der er flere vindere!\nTillykke til:\n");
         } else {
             msg = new StringBuilder("Tillykke til ");
         }

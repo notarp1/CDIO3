@@ -72,7 +72,7 @@ public class RykFarve extends Kort {
             }
         }
         player.giveFreeBee();
-        player.moveTo(selected);
+        player.moveTo(selected, true);
     }
 
     @Override
