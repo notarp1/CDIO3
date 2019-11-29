@@ -16,7 +16,6 @@ public class    BoardController {
     private static GUI gui;
     private static Brik brik;
     private static Felter felter;
-    private static GUI_Player[] playergui;
 
     public BoardController(){
         initVars();

@@ -55,6 +55,8 @@ public class RykFarve extends Kort {
                 options[2] = 16;
                 options[3] = 17;
                 break;
+            default:
+                break;
         }
         gui.displayChanceCard(toString());
         GUI_Field[] felter = gui.getFields();
@@ -122,7 +124,9 @@ public class RykFarve extends Kort {
                         "Ellers skal du betale leje til ejeren.\n";
                 break;
             default:
-                description += cardNumber+0;
+                description = "Ukendt RykFarve-kort... nummer: " + cardNumber;
+                System.out.println(description);
+                break;
         }
         return description;
     }

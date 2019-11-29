@@ -21,6 +21,8 @@ public class RykTil extends Kort {
                 player.giveFreeBee();
                 player.moveTo(10, false);
                 break;
+            default:
+                break;
         }
         gui.displayChanceCard(toString());
     }
@@ -43,7 +45,8 @@ public class RykTil extends Kort {
                         "Ellers skal du betale leje til ejeren.\n";
                 break;
             default:
-                description += cardNumber;
+                description = "Ukendt RykTil-kort... nummer: " + cardNumber;
+                System.out.println(description);
                 break;
         }
         return description;

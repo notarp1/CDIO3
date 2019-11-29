@@ -20,7 +20,8 @@ public class GetOutOfJail extends Kort {
             description = "Du løslades uden omkostninger.\n" +
                     "Behold dette kort indtil du får brug for det.\n";
         } else {
-            description += cardNumber;
+            description = "Ukendt GetOutOfJail-kort... nummer: " + cardNumber;
+            System.out.println(description);
         }
         return description;
     }

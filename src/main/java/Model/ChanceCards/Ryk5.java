@@ -23,7 +23,8 @@ public class Ryk5 extends Kort {
         if (cardNumber == 13) {
             description = "Ryk op til 5 felter frem\n";
         } else {
-            description += cardNumber;
+            description = "Ukendt Ryk5-kort... nummer: " + cardNumber;
+            System.out.println(description);
         }
         return description;
     }
