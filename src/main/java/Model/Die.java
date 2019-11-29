@@ -23,7 +23,6 @@ public class Die
 
     public String toString()
     {
-        String result = Integer.toString(faceValue);
-        return result;
+        return Integer.toString(faceValue);
     }
 }

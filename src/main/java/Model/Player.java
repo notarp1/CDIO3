@@ -31,6 +31,11 @@ public class Player {
         gui.getFields()[this.currentFelt].setCar(this.car, true);
     }
 
+    public Player(int startBalance, String username) {
+        account = new Account(startBalance);
+        playerName = username;
+    }
+
     private void username() {
         playerName = gui.getUserString("Indtast dit navn");
     }
@@ -41,12 +46,15 @@ public class Player {
 
     public void updateBalance(int diff){
         account.updateBalance(diff);
-        car.setBalance(account.balance);
+        if(car != null)
+            car.setBalance(account.balance);
     }
 
     private void updateCar(){
-        gui.getFields()[this.previousFelt].setCar(this.car, false);
-        gui.getFields()[this.currentFelt].setCar(this.car, true);
+        if(gui != null) {
+            gui.getFields()[this.previousFelt].setCar(this.car, false);
+            gui.getFields()[this.currentFelt].setCar(this.car, true);
+        }
     }
 
     public void move(int amount) {
@@ -68,7 +76,8 @@ public class Player {
     public void moveTo(int to, boolean passStart) {
         this.previousFelt = this.currentFelt;
         this.currentFelt = to;
-        this.passedStart = passStart;
+        if(this.currentFelt < this.previousFelt && passStart)
+            this.passedStart = true;
         this.updateCar();
     }
 

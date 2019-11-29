@@ -1,21 +1,15 @@
 package Model;
 
 public class Shaker {
-
-    private Die die1;
-    int facevalue;
+    private Die die;
 
     public Shaker() {
-        die1 = new Die();
+        die = new Die();
     }
 
-    public int rollDice(Player player){
-        die1.roll();
-        System.out.println(player +" slog: " + die1.getFaceValue());
-        return die1.getFaceValue();
-
-
+    public int rollDice(){
+        int val = die.roll();
+        System.out.println("Der blev slået: " + val);
+        return val;
     }
-
-
 }
