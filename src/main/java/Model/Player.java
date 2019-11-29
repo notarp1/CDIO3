@@ -4,6 +4,8 @@ import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
+import java.awt.*;
+
 public class Player {
     public Account account;
     private String input;
@@ -18,14 +20,23 @@ public class Player {
     public int currentFelt = 0;
     public int previousFelt = 0;
 
-    public String brik = "";
-
-    public Player(GUI gui, int startBalance) {
+    public Player(GUI gui, int startBalance, int i) {
         this.gui = gui;
         username();
         account = new Account(startBalance);
 
-        GUI_Player playercar = new GUI_Player(playerName, account.balance, new GUI_Car());
+        GUI_Car brik = new GUI_Car(
+            Color.BLACK,
+            Color.WHITE,
+            (
+                i == 0 ? GUI_Car.Type.CAR :
+                i == 1 ? GUI_Car.Type.RACECAR :
+                i == 2 ? GUI_Car.Type.TRACTOR :
+                GUI_Car.Type.UFO
+            ),
+            GUI_Car.Pattern.FILL);
+
+        GUI_Player playercar = new GUI_Player(playerName, account.balance, brik);
         gui.addPlayer(playercar);
         car = playercar;
         gui.getFields()[this.currentFelt].setCar(this.car, true);

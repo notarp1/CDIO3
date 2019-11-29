@@ -198,8 +198,7 @@ public class    BoardController {
         }
 
         for (int i = 0; i < numberOfPlayers; i++) {
-            System.out.println("Spiller indtast dit navn");
-            players[i] = new Player(gui, startBalance);
+            players[i] = new Player(gui, startBalance, i);
 
             gui.showMessage("Navn: " + players[i].playerName + "\nStart-balance: " + players[i].account.balance);
         }
